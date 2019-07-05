@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.luban">
+    <insert id="insertPerson" parameterType="Person" >
+        INSERT INTO PERSON(ID,USERNAME,AGE,MOBILEPHONE)VALUES (#{id},#{userName},#{age},#{mobilePhone})
+    </insert>
+
+    <select id="findUserById" parameterType="int" resultType="com.luban.Person">
+        select *from person where id=#{id}
+    </select>
+
+    <update id="updatePerson">
+        UPDATE PERSON SET USERNAME=#{userName},AGE=#{age},MOBILEPHONE=#{mobilePhone} WHERE ID=#{id}
+    </update>
+</mapper>
